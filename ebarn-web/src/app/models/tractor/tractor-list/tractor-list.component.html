@@ -1,0 +1,63 @@
+<!-- Títuto da página -->
+<h3 class="page-title">List of Tractors</h3>
+
+<!-- Opções e Filtro -->
+<div class="form-group clearfix">
+  <div class="float-left">
+    <!-- Botão para cadastrar -->
+    <button class="btn btn-primary mr-1" routerLink="/tractor/novo">
+      <i class="fa fa-plus"></i> Add
+    </button>
+  </div>
+  <div class="float-right">
+    <input type="text" class="form-control" placeholder="Filter by name ..." />
+  </div>
+</div>
+
+<!-- Lista de mantenedoras -->
+<table class="table table-border table-hover">
+  <!-- Cabeçalho da tabela -->
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="text-right">Actions</th>
+      <th class="text-right"></th>
+    </tr>
+  </thead>
+  <!-- Corpo da tabela -->
+  <tbody>
+    <tr *ngIf="tractors?.length == 0">
+      <td colspan="5" class="text-center">
+        <i class="fa fa-inbox"></i> No records found!
+      </td>
+    </tr>
+    <tr *ngFor="let tractor of tractors">
+      <td>
+        <!-- Botão para visualizar -->
+        <button
+          class="btn btn-link"
+          [routerLink]="['/tractor/visualizar', tractor.id]"
+        >
+          {{ tractor.name }}
+        </button>
+      </td>
+      <td class="text-right">
+        <!-- Botão para editar -->
+        <button
+          class="btn btn-outline-primary btn-sm mr-1"
+          [routerLink]="['/tractor/editar', tractor.id]"
+        >
+          <i class="fa fa-edit"></i>
+        </button>
+
+        <!-- Botão para deletar -->
+        <button
+          class="btn btn-outline-danger btn-sm"
+          (click)="onDelete(tractor.id)"
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

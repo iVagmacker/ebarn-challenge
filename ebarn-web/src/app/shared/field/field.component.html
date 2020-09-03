@@ -1,0 +1,18 @@
+<div class="form-group" [ngClass]="optionClass()">
+  <label class="control-label" [class.required]="isRequired()">{{
+    label
+  }}</label>
+  <ng-content></ng-content>
+
+  <span *ngIf="hasError()" class="help-block">
+    <span *ngIf="input.errors.required">Campo obrigatório</span>
+    <span *ngIf="input.errors.minlength"
+      >Informe no minimo
+      {{ input.errors.minlength.requiredLength }} caracteres</span
+    >
+    <span *ngIf="input.errors.maxlength"
+      >Informe no máximo
+      {{ input.errors.maxlength.requiredLength }} caracteres</span
+    >
+  </span>
+</div>

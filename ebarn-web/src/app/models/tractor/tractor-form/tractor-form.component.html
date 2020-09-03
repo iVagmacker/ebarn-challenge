@@ -1,0 +1,43 @@
+<!-- Título da página -->
+<h3 class="page-title">Main data of the Tractor</h3>
+
+<!-- Formulário -->
+<form [formGroup]="tractorForm" (submit)="onSave()">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <!-- Primeira linha -->
+      <div class="row">
+        <!-- Name -->
+        <div class="col-md-6 col-lg-4">
+          <app-field label="Name" required="true">
+            <input type="text" class="form-control" formControlName="name" />
+          </app-field>
+        </div>
+        <!-- Fim fabricante -->
+      </div>
+      <!-- Fim primeira linha -->
+    </div>
+    <!-- Fim panel-body -->
+    <div class="panel-footer">
+      <!-- Botão para editar -->
+      <button
+        class="btn btn-primary mr-1"
+        [routerLink]="['/tractor/editar', tractor.id]"
+        *ngIf="tractorForm.disabled"
+      >
+        <i class="fa fa-edit"></i> Editar
+      </button>
+
+      <!-- Botão para salvar -->
+      <button class="btn btn-success mr-1" *ngIf="!tractorForm.disabled">
+        <i class="fa fa-paper-plane"></i> Salvar
+      </button>
+
+      <!-- Botão para lista -->
+      <button class="btn btn-light" routerLink="/tractor">Cancelar</button>
+    </div>
+    <!-- Fim panel-footer -->
+  </div>
+  <!-- Fim panel -->
+</form>
+<!-- Fim form -->

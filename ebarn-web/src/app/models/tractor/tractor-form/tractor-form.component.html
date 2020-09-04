@@ -13,6 +13,39 @@
             <input type="text" class="form-control" formControlName="name" />
           </app-field>
         </div>
+
+        <div class="col-md-2">
+          <div>
+            <img [src]="imagem" id="imagemTest" class="imagem" />
+            <div
+              class="text-center"
+              style="margin-top: -15px; margin-left: 5px"
+            >
+              <div class="upload-btn-wrapper">
+                <button
+                  type="file"
+                  class="fa fa-upload btn btn-default"
+                  style="margin-top: 20px"
+                ></button>
+                <input
+                  formControlName="avatar"
+                  type="file"
+                  class="btn btn-default fa fa-upload"
+                  id="avatar"
+                  accept="image/*"
+                  (change)="onFileChange($event)"
+                  #fileInput
+                />
+              </div>
+              <button
+                class="fa fa-trash btn btn-default"
+                (click)="excluirImagem()"
+                style="margin-top: -20px"
+              ></button>
+            </div>
+          </div>
+        </div>
+
         <!-- Fim fabricante -->
       </div>
       <!-- Fim primeira linha -->

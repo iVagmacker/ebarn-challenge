@@ -18,5 +18,9 @@ export class TractorListComponent implements OnInit {
       .subscribe((response) => (this.tractors = response));
   }
 
-  public onDelete(id: number) {}
+  public async onDelete(id: string, index: any): Promise<void> {
+    this.tractorService.remover(id).subscribe((response) => {
+      response = this.tractors.splice(index, 1);
+    });
+  }
 }

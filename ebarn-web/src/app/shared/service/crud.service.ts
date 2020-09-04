@@ -33,7 +33,7 @@ export class CrudService<T> extends AbstractService {
   }
 
   public salvar(record: T): Observable<any> {
-    return this.http.post<T>(this.getUrl('/salvar'), record).pipe(
+    return this.http.post<T>(this.getUrl('/'), record).pipe(
       take(this.alive),
       catchError((error) => {
         return throwError(error);
@@ -41,8 +41,8 @@ export class CrudService<T> extends AbstractService {
     );
   }
 
-  public atualizar(record: T): Observable<any> {
-    return this.http.put<T>(this.getUrl('/'), record).pipe(
+  public atualizar(id: number | string): Observable<any> {
+    return this.http.put<T>(this.getUrl(`/${id}`), this.getHeaders()).pipe(
       take(this.alive),
       catchError((error) => {
         return throwError(error);

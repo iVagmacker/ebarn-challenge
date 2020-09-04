@@ -6,6 +6,8 @@ import { TractorFormComponent } from './tractor-form/tractor-form.component';
 const routes: Routes = [
   { path: '', component: TractorListComponent },
   { path: 'novo', component: TractorFormComponent },
+  { path: 'editar/:id', component: TractorFormComponent },
+  { path: 'visualizar/:id', component: TractorFormComponent },
 ];
 
 @NgModule({

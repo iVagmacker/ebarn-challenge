@@ -15,7 +15,7 @@ class CreateTractorService {
     });
 
     if (checkTractorExists) {
-      throw new Error('Email address already used');
+      throw new Error('Name address already used');
     }
 
     const tractor = tractorsRepository.create({
